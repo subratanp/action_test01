@@ -1,0 +1,16 @@
+name: "Test Action"
+description: "This is testing"
+inputs:
+  param1:
+    description: "Test Input"
+    required: true
+    default: "testing"
+outputs:
+  testoutput:
+    description: "This is testoutput"   
+runs:
+   using: "node20"
+   main: "dis/index.js"
+   
+
+
