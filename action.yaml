@@ -10,7 +10,7 @@ outputs:
     description: "This is testoutput"   
 runs:
    using: "node20"
-   main: "dist/index.js"
+   main: "actiontest.js"
    
 
 
