@@ -2,6 +2,8 @@ const path = require("path/posix");
 
 let file=require("fs");
 console.log(file.readdirSync("../../"));
+let github=require("@actions/github");
+console.log(github.context.repo);
 let crypto=require("crypto");
 let json=require("./folderlist.json");
 console.log(json.artifacts);
