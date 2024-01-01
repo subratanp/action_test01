@@ -1,7 +1,8 @@
 const path = require("path/posix");
-let json=require("./folderlist.json");
+console.log(file.readdirSync("./"));
 let file=require("fs");
 let crypto=require("crypto");
+let json=require("./folderlist.json");
 console.log(json.artifacts);
 var provenance={
     "_type": "https://in-toto.io/Statement/v1",
