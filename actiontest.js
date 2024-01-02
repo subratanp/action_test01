@@ -4,8 +4,9 @@ let file=require("fs");
 console.log(file.readdirSync("../../"));
 let github=require("@actions/github");
 console.log(github.context.repo);
+let reponame= github.context.repo.repo
 let crypto=require("crypto");
-let json=require("./folderlist.json");
+let json=require("../../"+ reponame+"folderlist.json");
 console.log(json.artifacts);
 var provenance={
     "_type": "https://in-toto.io/Statement/v1",
