@@ -1,5 +1,5 @@
 const path = require("path/posix");
-
+let core=require("@actions/core");
 let file=require("fs");
 console.log(file.readdirSync("../../devopsporject/devopsporject"));
 console.log(file.readdirSync("../../_temp"));
@@ -71,6 +71,17 @@ console.log(JSON.stringify(provenance));
 //var provenance_write=file.writeFileSync("../../"+reponame+"/"+reponame+"/"+provenance+"_"+github.context.actor+"/"+"provenance"+"_"+github.context.actor+".json",JSON.stringify(provenance));
 
 var provenance_write=file.writeFileSync("../../"+reponame+"/"+reponame+"/"+provenance+"_"+github.context.actor_id+".json",JSON.stringify(provenance));
+core.setOutput("../../"+reponame+"/"+reponame+"/"+provenance+"_"+github.context.actor_id+".json")
+
+if (file.existsSync("../../"+reponame+"/"+reponame+"/"+provenance+"_"+github.context.actor_id+".json")){
+
+  core.setOutput("File Found");
+
+}
+else{
+   core.setOutput("Not Found");
+
+}
 
 
 
