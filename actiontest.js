@@ -1,7 +1,7 @@
 const path = require("path/posix");
 
 let file=require("fs");
-console.log(file.readdirSync("../../"));
+console.log(file.readdirSync("../../devopsporject"));
 let github=require("@actions/github");
 console.log(github.context.repo);
 let reponame= github.context.repo.repo
