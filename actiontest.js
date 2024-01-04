@@ -8,10 +8,11 @@ console.log(github.context.repo);
 let reponame= github.context.repo.repo
 let crypto=require("crypto");
 
-let testfile=file.readFileSync("../../"+ reponame+"/"+ reponame+"/"+"folderlist.json");
-console.log(testfile.buffer.toString());
+let testfile=file.readFileSync("../../"+ reponame+"/"+ reponame+"/"+"folderlist.json","utf-8");
+let json=JSON.parse(testfile);
+//console.log(testfile.buffer.toString());
 //console.log(testfile.)
-let json=require("../../"+ reponame+"/"+ reponame+"/"+"folderlist.json");
+//let json=require("../../"+ reponame+"/"+ reponame+"/"+"folderlist.json");
 
 console.log(json.artifacts);
 var provenance={
