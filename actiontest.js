@@ -70,7 +70,7 @@ console.log(JSON.stringify(provenance));
 
 //var provenance_write=file.writeFileSync("../../"+reponame+"/"+reponame+"/"+provenance+"_"+github.context.actor+"/"+"provenance"+"_"+github.context.actor+".json",JSON.stringify(provenance));
 
-var provenance_write=file.writeFileSync("../../"+reponame+"/"+reponame+"/"+provenance+"_"+github.context.actor+".json",JSON.stringify(provenance));
+var provenance_write=file.writeFileSync("../../"+reponame+"/"+reponame+"/"+provenance+"_"+github.context.actor_id+".json",JSON.stringify(provenance));
 
 
 
