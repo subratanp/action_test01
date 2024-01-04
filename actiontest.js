@@ -7,7 +7,12 @@ let github=require("@actions/github");
 console.log(github.context.repo);
 let reponame= github.context.repo.repo
 let crypto=require("crypto");
+
+let testfile=file.readFileSync("../../"+ reponame+"/"+ reponame+"/"+"folderlist.json");
+console.log(testfile.buffer.toString());
+//console.log(testfile.)
 let json=require("../../"+ reponame+"/"+ reponame+"/"+"folderlist.json");
+
 console.log(json.artifacts);
 var provenance={
     "_type": "https://in-toto.io/Statement/v1",
