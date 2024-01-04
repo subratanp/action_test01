@@ -64,10 +64,13 @@ for (i of json.artifacts){
 }
 
 
+
 console.log(JSON.stringify(provenance));
+//file.mkdirSync("../../"+reponame+"/"+reponame+"/"+provenance+"_"+github.context.actor);
 
-var provenance_write=file.writeFileSync("provenance.json",JSON.stringify(provenance));
+//var provenance_write=file.writeFileSync("../../"+reponame+"/"+reponame+"/"+provenance+"_"+github.context.actor+"/"+"provenance"+"_"+github.context.actor+".json",JSON.stringify(provenance));
 
+var provenance_write=file.writeFileSync("../../"+reponame+"/"+reponame+"/"+provenance+"_"+github.context.actor+".json",JSON.stringify(provenance));
 
 
 
