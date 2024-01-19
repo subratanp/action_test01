@@ -75,7 +75,7 @@ var provenance_write=file.writeFileSync("../../"+reponame+"/"+reponame+"/"+"prov
 
 core.setOutput("../../"+reponame+"/"+reponame+"/"+provenance+"_"+github.context.actor_id+".json")
 console.log("../../"+reponame+"/"+reponame+"/"+provenance+"_"+github.context.actor_id+".json")
-
+console.log(github.context);
 if (file.existsSync("../../"+reponame+"/"+reponame+"/"+provenance+"_"+github.context.actor_id+".json")){
 
   core.setOutput("File Found");
