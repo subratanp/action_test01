@@ -179,8 +179,8 @@ console.log(github.context.payload.head_commit.timestamp);
 console.log(github.context.payload.head_commit.id);
 console.log(github.context.payload.head_commit.url);
 console.log("###")
-console.log(github.action_path)
-console.log(github.action_ref)
+console.log(github.context.action_path)
+console.log(github.context.action_ref)
 
 
 
