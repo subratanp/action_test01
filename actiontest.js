@@ -79,6 +79,8 @@ var provenance_write=file.writeFileSync("../../"+reponame+"/"+reponame+"/"+"prov
 //console.log(github.context.payload.commits);
 //console.log(github.context.payload.head_commit.author);
 //console.log(github.context.payload.head_commit.committer);
+console.log(console.log(github.context))
+console.log("########")
 console.log(github.context.payload.sender.id)
 console.log(github.context.payload.actor)
 console.log("#####")
