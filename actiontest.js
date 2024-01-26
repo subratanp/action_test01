@@ -73,11 +73,19 @@ console.log(JSON.stringify(provenance));
 
 var provenance_write=file.writeFileSync("../../"+reponame+"/"+reponame+"/"+"provenance"+"_"+github.context.actor_id+".json",JSON.stringify(provenance));
 
-core.setOutput("../../"+reponame+"/"+reponame+"/"+provenance+"_"+github.context.actor_id+".json")
-console.log("../../"+reponame+"/"+reponame+"/"+provenance+"_"+github.context.actor_id+".json")
-console.log(github.context);
-console.log(github.context.payload.commits);
-console.log(github.context.payload.head_commit.author);
+//core.setOutput("../../"+reponame+"/"+reponame+"/"+provenance+"_"+github.context.actor_id+".json")
+//console.log("../../"+reponame+"/"+reponame+"/"+provenance+"_"+github.context.actor_id+".json")
+//console.log(github.context);
+//console.log(github.context.payload.commits);
+//console.log(github.context.payload.head_commit.author);
+//console.log(github.context.payload.head_commit.committer);
+console.log(github.context.payload.sender.id)
+console.log(github.context.payload.actor)
+console.log("#####")
+console.log(github.context.payload.commits)
+console.log("#####")
+console.log(github.context.payload.head_commit.author)
+console.log("#####")
 console.log(github.context.payload.head_commit.committer);
 if (file.existsSync("../../"+reponame+"/"+reponame+"/"+provenance+"_"+github.context.actor_id+".json")){
 
