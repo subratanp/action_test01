@@ -1,6 +1,8 @@
+
 const path = require("path/posix");
 let core=require("@actions/core");
 let file=require("fs");
+let os=require("os");
 console.log(file.readdirSync("../../devopsporject/devopsporject"));
 console.log(file.readdirSync("../../_temp"));
 let github=require("@actions/github");
@@ -21,7 +23,7 @@ var provenance={
     "perdicateType":"https://slsa.dev/provenance/v1",
     "predicate":{
        "buildDefinition":{
-       "buildType":"",
+       "buildType":"https://github.com/subratanp/githubbuild/blob/main/v1/Builddefinition.MD",
        "externalParameter":[],
        "internalParameters":{},
        "resolveDependencies":[]
@@ -136,6 +138,8 @@ console.log(JSON.stringify(provenance));
 
 var provenance_write=file.writeFileSync("../../"+reponame+"/"+reponame+"/"+"provenance"+"_"+github.context.actor_id+".json",JSON.stringify(provenance));
 
+console.log(os.hostname());
+
 //core.setOutput("../../"+reponame+"/"+reponame+"/"+provenance+"_"+github.context.actor_id+".json")
 //console.log("../../"+reponame+"/"+reponame+"/"+provenance+"_"+github.context.actor_id+".json")
 //console.log(github.context);
@@ -179,6 +183,7 @@ console.log(github.context.payload.head_commit.timestamp);
 console.log(github.context.payload.head_commit.id);
 console.log(github.context.payload.head_commit.url);
 console.log("###")
+console.log(github.context)
 console.log(github.context.action_path)
 console.log(github.context.action_ref)
 

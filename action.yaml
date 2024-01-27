@@ -1,10 +1,14 @@
 name: "Test Action"
 description: "This is testing"
 inputs:
-  param1:
-    description: "Test Input"
+  runner_name:
+    description: "Runner Name"
     required: true
-    default: "testing"
+    default: "none"
+  runner_os:
+    description: "Runner os"
+    required: true
+    default: "none"
 outputs:
   testoutput:
     description: "This is testoutput"   
