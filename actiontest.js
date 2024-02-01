@@ -87,6 +87,16 @@ var externalParameter={
 
 }
 
+function getMainWorkflowHash(filename){
+    filepath="../../"+ reponame+"/"+ reponame+"/"+".github/workflows/"+filename;
+    var readfile=file.readdirSync(filePath);
+    var sha256=crypto.createHash("sha256");
+    sha256.update(readfile);
+    var hex=sha256.digest("hex");
+    return hex;
+
+}
+
 function getFileHash(filepath){
     var readfile=file.readFileSync(filepath);
     var sha256=crypto.createHash("sha256");
@@ -146,20 +156,36 @@ console.log(os.hostname());
 //console.log(github.context.payload.commits);
 //console.log(github.context.payload.head_commit.author);
 //console.log(github.context.payload.head_commit.committer);
+////###########//////
+
 
 internalParameter.github_committer_id=github.context.payload.sender.id;
-internalParameter.github_committer_name=github.context.payload.pusher.name
-internalParameter.github_committer_email=github.context.payload.pusher.email
-internalParameter.author_username=github.context.payload.head_commit.author.username
-internalParameter.author_email=github.context.payload.head_commit.author.email
-internalParameter.local_committer_name=github.context.payload.head_commit.committer.username
-internalParameter.local_committer_email=github.context.payload.head_commit.committer.email
+internalParameter.github_committer_name=github.context.payload.pusher.name;
+internalParameter.github_committer_email=github.context.payload.pusher.email;
+internalParameter.repository_name=github.context.payload.repository.name;
+//internalParameter.author_username=github.context.payload.head_commit.author.username
+//internalParameter.author_email=github.context.payload.head_commit.author.email
+//internalParameter.local_committer_name=github.context.payload.head_commit.committer.username
+//internalParameter.local_committer_email=github.context.payload.head_commit.committer.email
+internalParameter.main_workflow_name=json.main_workflow; 
+internalParameter.main_workflow_hash=getMainWorkflowHash(json.main_workflow);
+internalParameter.event_name=github.context.payload.event_name;
+
+/////////##############////////////
 provenance.runDetails.metadata.commit_id=github.context.payload.head_commit.id
 provenance.runDetails.metadata.url=github.context.payload.head_commit.url
 provenance.runDetails.metadata.committ_timestamp=github.context.payload.head_commit.timestamp
 provenance.runDetails.metadata.invocationId=github.context.runNumber;
 provenance.runDetails.metadata.branch=github.context.ref
 
+//#### Print Paritial Data #####////
+
+console.log(internalParameter);
+console.log(provenance).runDetails.metadata;
+//### Print Partial Data ###////
+
+
+////#####////
 console.log(console.log(github.context))
 console.log("########")
 
